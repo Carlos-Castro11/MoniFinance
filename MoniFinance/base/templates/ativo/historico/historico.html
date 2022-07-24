@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-4 mb-5">
+	{% if hist_list %}
+		<h1>{{ ativo.b3 }} - {{ ativo.nome_empresa }}</h1>
+		<p style="font-size: 15pt">{{ ativo.desc_empresa }}</p>
+		<h5>Histórico de Valores:</h5>
+		<p>Obs.: Os valores são atualizados a cada 10 minutos.</p>
+		<table class="table table-striped">
+			<thead>
+				<tr class="text-center">
+					<th scope="col">Valor</th>
+					<th scope="col">Valor Anterior</th>
+					<th scope="col">Porcentagem</th>
+					<th scope="col">Data de Atualização</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for hist in hist_list %}
+					<tr class="text-center">
+						<td>R$ {{hist.valor}}</td>
+						<td>R$ {{hist.valor_anterior}}</td>
+						<td>{{hist.porcentagem}}%</td>
+						<td>{{hist.data_atualizacao}}</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	{% endif %}	
+</div>
+{% endblock %} 

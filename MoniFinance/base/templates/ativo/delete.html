@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container mt-4 mb-5">
+	<h5>Excluir ativo: {{ativo.b3}} / {{ativo.nome_empresa}}</h5>
+	<div class="p-5 mt-5 rounded-3 col-md-8 col-10 mx-auto" style="background-color: rgb(248, 242, 242);">
+		<div class="container-fluid py-2">
+			<h1>Excluir Ativo</h1>
+			<p style="font-size: 20px;">Você tem certeza que deseja excluir o ativo abaixo?</p>
+			<hr class="my-4">
+			<p style="font-size: 20px;"><b>Ativo:</b> {{ ativo.b3 }} - {{ ativo.nome_empresa }}</p>
+			<p style="font-size: 20px;"><b>Descrição:</b> {{ ativo.desc_empresa }}</p>
+			<form method="POST" action="">
+				{% csrf_token %}
+				{{ form|crispy }}
+				<input type="submit" class="btn btn btn-danger mt-4" value="Sim, excluir!" />
+			</form>
+		</div>
+	</div>
+</div> 
+{% endblock %}

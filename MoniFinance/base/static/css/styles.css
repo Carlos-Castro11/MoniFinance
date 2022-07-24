@@ -1,0 +1,41 @@
+/* home-img */
+#home .home-image img{
+    width: 55rem;
+    height: 55rem;
+}
+
+/* home-button */
+#home .home-button a{
+    text-decoration: none;
+    color: #f8f8f8;
+    font-size: 30px;
+    font: roboto;
+    font-weight: 700;
+}
+
+#home .home-button button{
+    border-radius: 10px;
+    border: none;
+    margin-top: 3rem;
+    padding: 0.5rem 1rem;
+    background: #559667;
+    transition: all ease-in-out;
+}
+
+#home .home-button button:hover{
+    background-color: #27a049;
+    transition: 0.2s;
+    box-shadow: 0px 0px 5px 0px;
+}
+
+/* footer */
+.second-container{
+    margin-left: 3rem;
+}
+
+.divider{
+    height: 160px;
+    width: 2px;
+    color: black;
+    border-left: 2px solid;
+}

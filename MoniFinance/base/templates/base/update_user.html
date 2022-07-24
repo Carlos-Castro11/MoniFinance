@@ -1,0 +1,15 @@
+{% extends 'base.html' %} 
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="container">
+  <form action="" method="POST">
+    {% csrf_token %} 
+      <div class="col-md-6 mt-5 mx-auto p-5 rounded-3" style="background-color: rgb(248, 242, 242);">
+        <h1>Editar perfil <span style="color: green;">-></span></h1>
+        {{ form|crispy }}
+        <input type="submit" value="Atualizar" class="btn btn-success mt-4 mb-4" />
+        <a role="button" class="btn btn-danger rounded" style="margin-left: 1rem;" href="{% url 'home' %}">Cancelar</a>
+      </div>
+  </form>
+</div>
+{% endblock content %}

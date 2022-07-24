@@ -1,0 +1,28 @@
+{% extends 'base.html' %} 
+{% block content %} 
+{% load static %} 
+{% load crispy_forms_tags %}
+<div class="container mt-5">
+	<div class="p-5 mb-4 rounded-3 col-md-6 col-10 mx-auto" style="background-color: rgb(248, 242, 242);">
+		<div>
+			<h1>Cadastro de Ativos <span style="color: green;">-></span></h1>
+			<p class="lead">Preencha os campos abaixo para começar a monitorar o ativo de sua escolha. Consulte a lista dos códigos dos ativos <a target="_blank" href="https://console.hgbrasil.com/documentation/finance/symbols">clicando aqui</a></p>
+			<hr class="my-4">
+			{% if flag == 1 %}	
+				<div class="alert alert-danger" role="alert">
+					<b>Ativo não indentificado!!</b>
+				</div>
+			{% elif flag == 3 %}	
+				<div class="alert alert-danger" role="alert">
+					<b>Você já esta monitorando este ativo!!</b>
+				</div>	
+			{% endif %}
+			<form method="post" action="">
+				{% csrf_token %}
+				{{ form|crispy }}
+				<input type="submit" class="btn btn btn-success mt-4 arredondar-botao" value="Cadastrar Ativo" />
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock content %}

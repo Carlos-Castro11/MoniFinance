@@ -1,0 +1,59 @@
+{% extends 'base.html' %} 
+{% block content %} 
+{% load crispy_forms_tags %}
+{% if page == 'login' %}
+<div class="container mt-4 mb-5">
+	<div class="p-5 mt-5 rounded-3 col-md-8 col-10 mx-auto" style="background-color: rgb(248, 242, 242);">
+		<div class="container-fluid py-2">
+      <h1>Login <span style="color: green;">-></span></h1>
+      <form action="" method="POST">
+        {% csrf_token %}
+    
+        <div class="col-md-12 mb-4 mx-auto">
+          <label>Usuário:</label>   
+          <input type="text" name="username" class="form-control" placeholder="Digite o usuário"> 
+        </div>
+        
+        <div class="col-md-12 mb-4 mx-auto">
+          <label>Senha:</label>
+          <input type="password" name="password" class="form-control" placeholder="Senha">
+          <button type="submit" class="btn btn-success mt-4">Login</button>
+        </div>  
+      </form>
+      {% if flag == 1 %}
+        <div class="alert alert-danger" role="alert">
+          Usuário ou senha incorreta!
+        </div>
+      {% endif %}
+      <div class="col-md-12 mb-4 rounded-3 mx-auto">
+        <p>Ainda não possui uma conta?</p>
+        <a href="{% url 'register' %}"><button class="btn btn-primary">Criar conta</button></a>
+      </div>
+		</div>
+	</div>
+</div> 
+
+  {% else %}
+
+<div class="container p-5">
+  <div class="p-3 rounded-3 col-md-8 col-10 mx-auto" style="background-color: rgb(248, 242, 242);">
+    <form action="" method="POST">
+      {% csrf_token %} 
+      <div class="col-md-9 mb-4 mx-auto">
+        <h1>Cadastrar-se <span style="color: green;">-></span></h1>
+        {{ form|crispy }}
+        <input type="submit" value="Cadastrar-se" class="btn btn-success mt-4 mb-4" />
+        <p>Já possui uma conta?</p>
+        <a href="{% url 'login' %}" class="btn btn-primary">Fazer Login</a>
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endif %} 
+
+
+
+
+
+{% endblock content %}
